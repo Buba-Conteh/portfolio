@@ -1,16 +1,6 @@
 <template>
   <div
-    class="
-      w-full
-      lg:h-screen
-      h-auto
-      p-2
-      pt-10
-      flex flex-col
-      justify-center
-      relative
-      box-border
-    "
+    class="w-full lg:h-screen h-auto p-2 pt-10 flex flex-col justify-center relative box-border"
   >
     <font-awesome-icon
       icon="fa-solid fa-chevron-right"
@@ -48,17 +38,14 @@
         <img src="../assets/twitter-ar21.svg" class="mx-5" width="70" alt="" />
       </div>
     </div>
+
     <footer class="pt-4 border-box">
+      <div id="fb-root"></div>
+
+      <div ref="fbChat" class="fb-customerchat"></div>
+
       <ul
-        class="
-          flex
-          justify-around
-          uppercaser
-          w-2/6
-          align-cenetr
-          mx-auto
-          box-border
-        "
+        class="flex justify-around uppercaser w-2/6 align-cenetr mx-auto box-border"
       >
         <li
           @click="setSection('hero')"
@@ -97,6 +84,8 @@
 import HeroSection from "./HeroSection.vue";
 import AboutSection from "./AboutSection.vue";
 import ProjectsSection from "./ProjectsSection.vue";
+import FacebookMessange from "./FacebookMessange.vue";
+// import VueFbCustomerChat from "vue-fb-customer-chat";
 
 export default {
   name: "MainSection",
@@ -107,6 +96,7 @@ export default {
     HeroSection,
     AboutSection,
     ProjectsSection,
+    FacebookMessange,
   },
   data() {
     return {
@@ -114,7 +104,31 @@ export default {
       section: "hero",
       chevonPosition: "slide-fade",
       active: "active font-bold text-lg",
+      // tinyurl.com/BubaConteh-gm
     };
+  },
+  mounted() {
+    var chatbox = this.$refs.fbChat;
+    console.log(chatbox, "come");
+    chatbox.setAttribute("page_id", "2348044188602402");
+    chatbox.setAttribute("attribution", "biz_inbox");
+
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: "v16.0",
+      });
+    };
+
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
   },
   methods: {
     changeSectionLeft(postition) {
