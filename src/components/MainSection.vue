@@ -40,9 +40,10 @@
     </div>
 
     <footer class="pt-4 border-box">
-      <div id="fb-root"></div>
+      <!-- <div id="fb-root"></div>
 
-      <div ref="fbChat" class="fb-customerchat"></div>
+      <div id="fb-customer-chat" class="fb-customerchat"></div> -->
+      <my-messenger-plugin></my-messenger-plugin>
 
       <ul
         class="flex justify-around uppercaser w-2/6 align-cenetr mx-auto box-border"
@@ -84,6 +85,7 @@
 import HeroSection from "./HeroSection.vue";
 import AboutSection from "./AboutSection.vue";
 import ProjectsSection from "./ProjectsSection.vue";
+import MyMessengerPlugin from "./MyMessengerPlugin.vue";
 
 export default {
   name: "MainSection",
@@ -94,6 +96,7 @@ export default {
     HeroSection,
     AboutSection,
     ProjectsSection,
+    MyMessengerPlugin,
   },
   data() {
     return {
@@ -105,25 +108,26 @@ export default {
     };
   },
   mounted() {
-    var chatbox = this.$refs.fbChat;
-    console.log(chatbox);
-    chatbox.setAttribute("page_id", "2348044188602402");
-    chatbox.setAttribute("attribution", "biz_inbox");
-    window.fbAsyncInit = function () {
-      FB.init({
-        xfbml: true,
-        version: "v16.0",
-      });
-    };
-    (function (d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, "script", "facebook-jssdk");
+    // var chatbox = document.getElementById("fb-customer-chat");
+    console.log("chatbox");
+    // chatbox.setAttribute("page_id", "2348044188602402");
+    // chatbox.setAttribute("attribution", "biz_inbox");
+
+    // window.fbAsyncInit = function () {
+    //   FB.init({
+    //     xfbml: true,
+    //     version: "v16.0",
+    //   });
+    //   };
+    //   (function (d, s, id) {
+    //     var js,
+    //       fjs = d.getElementsByTagName(s)[0];
+    //     if (d.getElementById(id)) return;
+    //     js = d.createElement(s);
+    //     js.id = id;
+    //     js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+    //     fjs.parentNode.insertBefore(js, fjs);
+    //   })(document, "script", "facebook-jssdk");
   },
   methods: {
     changeSectionLeft(postition) {
