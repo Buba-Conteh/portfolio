@@ -84,7 +84,6 @@
 import HeroSection from "./HeroSection.vue";
 import AboutSection from "./AboutSection.vue";
 import ProjectsSection from "./ProjectsSection.vue";
-import FacebookMessange from "./FacebookMessange.vue";
 // import VueFbCustomerChat from "vue-fb-customer-chat";
 
 export default {
@@ -96,7 +95,6 @@ export default {
     HeroSection,
     AboutSection,
     ProjectsSection,
-    FacebookMessange,
   },
   data() {
     return {
@@ -112,14 +110,12 @@ export default {
     console.log(chatbox, "come");
     chatbox.setAttribute("page_id", "2348044188602402");
     chatbox.setAttribute("attribution", "biz_inbox");
-
     window.fbAsyncInit = function () {
       FB.init({
         xfbml: true,
         version: "v16.0",
       });
     };
-
     (function (d, s, id) {
       var js,
         fjs = d.getElementsByTagName(s)[0];

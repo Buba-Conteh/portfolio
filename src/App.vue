@@ -1,29 +1,23 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <p class="text-blue-600">this is my portfolio page</p> -->
-
-  <MainSection />
-  <div
-    class="
-      absolute
-      top-2
-      right-2
-      bg-red-500
-      w-20
-      h-auto
-      flex
-      justify-evenly
-      shadow-md shadow-gray-500
-    "
-  >
+  <div>
+    <MainSection />
     <div
-      class="w-6/12 bg-white h-auto cursor-pointer"
-      @click="actvateLightMode"
+      class="absolute top-2 right-2 bg-red-500 w-20 h-auto flex justify-evenly shadow-md shadow-gray-500"
     >
-      <font-awesome-icon icon="fa-solid fa-sun" class="text-black p-2" />
-    </div>
-    <div class="w-6/12 bg-black h-auto cursor-pointer" @click="actvateDarkMode">
-      <font-awesome-icon icon="fa-solid fa-moon" class="text-white p-2" />
+      <div
+        class="w-6/12 bg-white h-auto cursor-pointer"
+        @click="actvateLightMode"
+      >
+        <font-awesome-icon icon="fa-solid fa-sun" class="text-black p-2" />
+      </div>
+      <div
+        class="w-6/12 bg-black h-auto cursor-pointer"
+        @click="actvateDarkMode"
+      >
+        <font-awesome-icon icon="fa-solid fa-moon" class="text-white p-2" />
+      </div>
     </div>
   </div>
 </template>
