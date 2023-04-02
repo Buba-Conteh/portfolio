@@ -1,6 +1,5 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <!-- <p class="text-blue-600">this is my portfolio page</p> -->
   <div>
     <MainSection />
     <div
