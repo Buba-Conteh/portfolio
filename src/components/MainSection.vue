@@ -106,6 +106,7 @@ export default {
   },
   mounted() {
     var chatbox = this.$refs.fbChat;
+    console.log(chatbox);
     chatbox.setAttribute("page_id", "2348044188602402");
     chatbox.setAttribute("attribution", "biz_inbox");
     window.fbAsyncInit = function () {
