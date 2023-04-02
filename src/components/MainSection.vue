@@ -84,7 +84,6 @@
 import HeroSection from "./HeroSection.vue";
 import AboutSection from "./AboutSection.vue";
 import ProjectsSection from "./ProjectsSection.vue";
-// import VueFbCustomerChat from "vue-fb-customer-chat";
 
 export default {
   name: "MainSection",
