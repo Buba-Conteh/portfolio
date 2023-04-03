@@ -43,7 +43,7 @@
       <!-- <div id="fb-root"></div>
 
       <div id="fb-customer-chat" class="fb-customerchat"></div> -->
-      <my-messenger-plugin></my-messenger-plugin>
+      <MyMessengerPlugin />
 
       <ul
         class="flex justify-around uppercaser w-2/6 align-cenetr mx-auto box-border"

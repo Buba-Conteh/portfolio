@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="fb-root"></div>
-    <div id="fb-customer-chat" class="fb-customerchat"></div>
+    <div id="fb-customer-chat" class="fb-customerchat">Chat</div>
   </div>
 </template>
   
