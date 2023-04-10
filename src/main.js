@@ -4,7 +4,6 @@ import "./assets/tailwind.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 /* import font awesome icon component */
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-/* import specific icons */
 
 
 import {
@@ -13,7 +12,8 @@ import {
   faChevronRight,
   faChevronLeft,
   faMoon,
-  faSun
+  faSun,
+  faEye
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faPhp,
@@ -44,7 +44,8 @@ library.add(
   faGithub,
   faTwitch,
   faMoon,
-  faSun
+  faSun,
+  faEye
 );
 
 
