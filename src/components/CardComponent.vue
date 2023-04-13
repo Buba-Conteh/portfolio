@@ -1,6 +1,6 @@
 <template>
   <carousel-card
-    class="hidden lg:block"
+    class="hidden lg:block w-full"
     ref="carouselCardRef"
     :interval="7000"
     :autoplay="false"
@@ -60,7 +60,7 @@
           class="object-cover"
         />
 
-        <div class="details group-hover:rotate-1">
+        <div class="details group-hover:rotate-0">
           <div class="center">
             <h1>{{ image.alt }}</h1>
             <div class="flex justify-around">

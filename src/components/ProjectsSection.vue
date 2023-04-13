@@ -1,7 +1,7 @@
 <template>
   <div class="pt-20 flex flex-1 h-50 justify-center align-middle">
     <div
-      class="lg:w-3/4 min-h-full w-full h-auto p-2 my-4 lg:p-5 items-baseline mx-auto lg:relative"
+      class="lg:w-3/4 min-h-full w-full h-auto p-2 my-4 lg:p-5 items-baseline mx-auto lg:relative flex justify-center align-middle flex-col"
     >
       <!-- <div
         class="b-3 bg-center bg-cover bg-no-repeat grid lg:grid-cols-2 grid-cols-1 w-[100%] gap-12"
