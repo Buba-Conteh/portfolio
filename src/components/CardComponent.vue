@@ -1,5 +1,6 @@
 <template>
   <carousel-card
+    class="hidden lg:block"
     ref="carouselCardRef"
     :interval="7000"
     :autoplay="false"
@@ -48,22 +49,46 @@
       <!-- <img :src="" alt="project" /> -->
     </carousel-card-item>
   </carousel-card>
-  <!-- <div style="text-align: center; padding: 10px">
-    <button @click="prev">prev</button>
-    <button @click="next">next</button>
-    <button @click="setToFirst">set to first</button>
-  </div> -->
-  <!-- <carousel-card
-    :interval="3000"
-    height="300px"
-    :autoplay="false"
-    arrow="always"
-    direction="vertical"
-  >
-    <carousel-card-item v-for="i in 6" :key="i">
-      <h1 v-text="i"></h1>
-    </carousel-card-item>
-  </carousel-card> -->
+
+  <div class="lg:hidden w-full sm-size h-full">
+    <div v-for="(image, index) in images" :key="index" :name="`cc_${index}`">
+      <div class="image relative mb-8 group">
+        <img
+          height="400"
+          :src="image.src"
+          :alt="image.alt"
+          class="object-cover"
+        />
+
+        <div class="details group-hover:rotate-1">
+          <div class="center">
+            <h1>{{ image.alt }}</h1>
+            <div class="flex justify-around">
+              <div>
+                <a target="_blank" :href="image.site_url">
+                  <font-awesome-icon
+                    icon="fa-solid fa-eye"
+                    class="mt-2 w-6 h-6 project-link"
+                  />
+                </a>
+              </div>
+              <div>
+                <a target="_blank" :href="image.github">
+                  <font-awesome-icon
+                    icon="fa-brands fa-github"
+                    class="mt-2 w-6 h-6 project-link"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <img :src="image.src" :alt="image.alt" class="object-cover" /> -->
+      <!-- <img :src="" alt="project" /> -->
+    </div>
+  </div>
 </template>
 
 <script>
@@ -129,11 +154,20 @@ h1 {
   height: 100%;
   overflow: hidden;
 }
+.sm-size .image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 .carousel-card .image img {
   width: 100%;
   transition: 0.5s;
 }
-.carousel-card .details {
+.sm-size .image img {
+  width: 100%;
+  transition: 0.5s;
+}
+.details {
   position: absolute;
   top: 0;
   left: 0;
@@ -147,7 +181,10 @@ h1 {
 .is-active:hover .details {
   transform: perspective(2000px) rotateY(0deg);
 }
-.carousel-card .details .center {
+/* .sm-size:hover:hover .details {
+  transform: perspective(2000px) rotateY(0deg);
+} */
+.center {
   padding: 20px;
   text-align: center;
   background: #fff;
@@ -156,7 +193,7 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
 }
-.carousel-card .details .center h1 {
+.details .center h1 {
   margin: 0;
   padding: 0;
   color: black;

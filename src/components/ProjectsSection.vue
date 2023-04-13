@@ -1,6 +1,8 @@
 <template>
   <div class="pt-20 flex flex-1 h-50 justify-center align-middle">
-    <div class="w-3/4 min-h-full h-auto p-5 items-baseline mx-auto relative">
+    <div
+      class="lg:w-3/4 min-h-full w-full h-auto p-2 my-4 lg:p-5 items-baseline mx-auto lg:relative"
+    >
       <!-- <div
         class="b-3 bg-center bg-cover bg-no-repeat grid lg:grid-cols-2 grid-cols-1 w-[100%] gap-12"
       > -->
