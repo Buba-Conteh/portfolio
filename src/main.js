@@ -13,7 +13,8 @@ import {
   faChevronLeft,
   faMoon,
   faSun,
-  faEye
+  faEye,
+  faEnvelope
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faPhp,
@@ -45,7 +46,8 @@ library.add(
   faTwitch,
   faMoon,
   faSun,
-  faEye
+  faEye,
+  faEnvelope
 );
 
 

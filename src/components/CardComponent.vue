@@ -50,8 +50,13 @@
     </carousel-card-item>
   </carousel-card>
 
-  <div class="lg:hidden w-full sm-size h-full">
-    <div v-for="(image, index) in images" :key="index" :name="`cc_${index}`">
+  <div class="lg:hidden w-full sm-size h-full mb-5">
+    <div
+      v-for="(image, index) in images"
+      :key="index"
+      :name="`cc_${index}`"
+      class="shadow-md"
+    >
       <div class="image relative mb-8 group">
         <img
           height="400"

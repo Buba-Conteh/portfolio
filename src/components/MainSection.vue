@@ -23,6 +23,9 @@
       <template v-else-if="section == 'projects'">
         <ProjectsSection> </ProjectsSection>
       </template>
+      <template v-else-if="section == 'contact'">
+        <ContactSection> </ContactSection>
+      </template>
     </Transition>
 
     <div class="flex justify-center mt-5">
@@ -83,6 +86,7 @@
 
 <script>
 import HeroSection from "./HeroSection.vue";
+import ContactSection from "./ContactSection.vue";
 import AboutSection from "./AboutSection.vue";
 import ProjectsSection from "./ProjectsSection.vue";
 import MyMessengerPlugin from "./MyMessengerPlugin.vue";
@@ -97,6 +101,7 @@ export default {
     AboutSection,
     ProjectsSection,
     MyMessengerPlugin,
+    ContactSection,
   },
   data() {
     return {
