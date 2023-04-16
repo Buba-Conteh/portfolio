@@ -58,6 +58,9 @@ export default {
     return {
       form: null,
       inputFieldReset: null,
+      emailjsServiceId: process.env.VUE_APP_EMAILJS_SERVICE_ID,
+      emailjsTemplateId: process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
+      emailjsUserId: process.env.VUE_APP_EMAILJS_USER_ID,
     };
   },
 
@@ -69,10 +72,10 @@ export default {
     sendMail() {
       emailjs
         .sendForm(
-          "service_6vtc04d",
-          "template_7v4ofby",
+          this.emailjsServiceId,
+          this.emailjsTemplateId,
           this.form,
-          "FH9v-Q9qQ194i8FuVafZj"
+          this.emailjsUserId
         )
         .then(() => {
           alert("Message sent!");
