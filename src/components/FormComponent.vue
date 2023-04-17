@@ -1,32 +1,68 @@
 <template>
   <div class="form">
+    <div
+      v-if="message"
+      class="p-4 my-2 w-fullopacity-100 rounded-lg"
+      :class="alerColor"
+    >
+      {{ message }}
+    </div>
     <form ref="form" action="" class="w-full bg-white p-8 border rounded-lg">
       <h2 class="font-['Philosopher'] text-[25px] text-left font-bold mb-3">
         Send Me A message 🚀
       </h2>
       <div class="form-group w-full">
         <input
+          name="from_name"
+          :value="inputFieldReset"
           type="text"
           placeholder="Fullname*"
           class="w-full leading-6 p-2 text-[20px] bg-gray-100 rounded-md"
+          required
         />
+        <div
+          v-if="errors.includes('from_name')"
+          class="text-red-400 text-left text-sm"
+        >
+          Fullname field is required
+        </div>
       </div>
-      <div>
+      <div class="my-4">
         <input
-          type="text"
+          name="email"
+          :value="inputFieldReset"
+          type="email"
           placeholder="Email*"
-          class="w-full leading-6 p-2 text-[20px] my-4 bg-gray-100 rounded-md"
+          class="w-full leading-6 p-2 text-[20px] bg-gray-100 rounded-md"
+          required
         />
+        <div
+          v-if="errors.includes('email')"
+          class="text-red-400 text-left text-sm"
+        >
+          Email field is required
+        </div>
       </div>
-      <div>
+      <div class="my-4">
         <input
+          name="subject"
+          :value="inputFieldReset"
           type="text"
           placeholder="Subject"
           class="w-full leading-6 p-2 text-[20px] my-4 bg-gray-100 rounded-md"
+          required
         />
+        <div
+          v-if="errors.includes('subject')"
+          class="text-red-400 text-left text-sm"
+        >
+          Subject field is required
+        </div>
       </div>
       <textarea
-        name=""
+        name="message"
+        required
+        :value="inputFieldReset"
         id=""
         cols="40"
         rows="5"
@@ -35,10 +71,18 @@
       ></textarea>
       <div class="flex justify-start">
         <button
+          type="submit"
           @click.prevent="sendMail"
-          class="px-5 py-4 bg-[rgb(44,62,80)] text-white shadow-md rounded-md text-[15px]"
+          class="px-5 py-4 bg-[rgb(44,62,80)] text-white shadow-md rounded-md text-[15px] flex"
         >
-          Send Message
+          <div>Send Message</div>
+          <img
+            v-if="status"
+            src="../assets/loader.svg"
+            alt="Sending Message"
+            width="25"
+            class="mx-2"
+          />
         </button>
       </div>
     </form>
@@ -61,6 +105,10 @@ export default {
       emailjsServiceId: process.env.VUE_APP_EMAILJS_SERVICE_ID,
       emailjsTemplateId: process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
       emailjsUserId: process.env.VUE_APP_EMAILJS_USER_ID,
+      status: false,
+      alerColor: "bg-green-300",
+      message: "",
+      errors: [],
     };
   },
 
@@ -69,21 +117,47 @@ export default {
   },
 
   methods: {
+    validate() {
+      this.status = true;
+      if (!this.form["from_name"].value) {
+        this.errors.push("from_name");
+      }
+      if (!this.form["email"].value) {
+        this.errors.push("email");
+      }
+      if (!this.form["message"].value) {
+        this.errors.push("message");
+      }
+      if (!this.form["subject"].value) {
+        this.errors.push("subject");
+      }
+      return this.errors;
+    },
     sendMail() {
-      emailjs
-        .sendForm(
-          this.emailjsServiceId,
-          this.emailjsTemplateId,
-          this.form,
-          this.emailjsUserId
-        )
-        .then(() => {
-          alert("Message sent!");
-          this.inputFieldReset = "";
-        })
-        .catch((error) => {
-          alert("Message not sent", error);
-        });
+      if (this.validate().length) {
+        this.status = false;
+        return;
+      }
+
+      (this.status = true),
+        emailjs
+          .sendForm(
+            this.emailjsServiceId,
+            this.emailjsTemplateId,
+            this.form,
+            this.emailjsUserId
+          )
+          .iter.then(() => {
+            this.message = "Message sent!, Thanks. I will get back to you ";
+            this.status = false;
+            this.alerColor = "bg-green-300";
+            this.inputFieldReset = "";
+          })
+          .catch(() => {
+            this.message = "Message not sent!";
+            this.status = false;
+            this.alerColor = "bg-red-300";
+          });
     },
   },
 };

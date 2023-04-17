@@ -14,7 +14,10 @@ import {
   faMoon,
   faSun,
   faEye,
-  faEnvelope
+  faEnvelope,
+  faPhone,
+  faPhoneAlt
+
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faPhp,
@@ -27,6 +30,7 @@ import {
   faFacebook,
   faGithub,
   faTwitch,
+  faWhatsapp
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
@@ -47,7 +51,10 @@ library.add(
   faMoon,
   faSun,
   faEye,
-  faEnvelope
+  faEnvelope,
+  faPhone,
+  faPhoneAlt,
+  faWhatsapp,
 );
 
 

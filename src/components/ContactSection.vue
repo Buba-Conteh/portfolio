@@ -16,19 +16,35 @@
             <p class="text-left">Let's create something together</p>
           </div>
           <div class="w-full">
-            <div
-              class="p-3 shadow-md bg-white w-[70%] grid grid-cols-4 rounded-md"
-            >
-              <div>
+            <div class="p-1 shadow-md mb-3 bg-white w-[65%] rounded-md">
+              <div class="flex justify-start align-middle p-2 border-b">
                 <font-awesome-icon
                   icon="fa-solid fa-envelope"
-                  class="w-6 h-6 project-link p-3 rounded-md bg-slate-100"
+                  class="w-6 h-6 project-link p-3 rounded-[25px] bg-slate-100"
                 />
-              </div>
-              <div class="col-span-3">
-                <div class="text-left">
-                  Mail me at <br />
+
+                <div class="text-left flex justify-between items-center mx-3">
                   <a href="#" class="text-blue-400">contehbuba21@gmail.com</a>
+                </div>
+              </div>
+              <div class="flex justify-start align-middle p-2 border-b">
+                <font-awesome-icon
+                  icon="fa-fal fa-phone"
+                  class="w-6 h-6 project-link p-3 rounded-[25px] bg-slate-100"
+                />
+
+                <div class="text-left flex justify-between items-center mx-3">
+                  <a href="#" class="text-blue-400">(+220) 3010451</a>
+                </div>
+              </div>
+              <div class="flex justify-start align-middle p-2">
+                <font-awesome-icon
+                  icon="fa-brands fa-whatsapp"
+                  class="w-6 h-6 project-link p-3 rounded-[25px] bg-slate-100"
+                />
+
+                <div class="text-left flex justify-between items-center mx-3">
+                  <a href="#" class="text-blue-400">(+220) 3010451</a>
                 </div>
               </div>
             </div>
