@@ -69,7 +69,10 @@
         placeholder="Message*"
         class="w-full leading-6 p-2 text-[20px] my-4 bg-gray-100 rounded-md"
       ></textarea>
-      <div class="flex justify-start">
+      <div
+        ref="submitContainer"
+        class="flex justify-start transition duration-[1000ms]"
+      >
         <button
           type="submit"
           @click.prevent="sendMail"
@@ -119,6 +122,7 @@ export default {
   methods: {
     validate() {
       this.status = true;
+      this.errors = [];
       if (!this.form["from_name"].value) {
         this.errors.push("from_name");
       }
@@ -135,10 +139,11 @@ export default {
     },
     sendMail() {
       if (this.validate().length) {
+        this.$refs.submitContainer.classList.toggle("justify-end");
         this.status = false;
+        // this.errors = [];
         return;
       }
-
       (this.status = true),
         emailjs
           .sendForm(

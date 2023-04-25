@@ -1,12 +1,12 @@
 <template>
   <carousel-card
-    class="hidden lg:block w-full"
+    class="hidden lg:block w-[70%] shadow-md rounded-md m-auto"
     ref="carouselCardRef"
-    :interval="7000"
-    :autoplay="false"
+    :interval="3000"
+    :autoplay="true"
     height="400px"
-    type="card"
-    arrow="always"
+    type="layout"
+    arrow="none"
     @change="changeHandle"
   >
     <carousel-card-item
@@ -19,7 +19,7 @@
           height="400"
           :src="image.src"
           :alt="image.alt"
-          class="object-cover"
+          class="object-cover object-center"
         />
       </div>
       <div class="details">
@@ -156,12 +156,12 @@ h1 {
 }
 .carousel-card .image {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   overflow: hidden;
 }
 .sm-size .image {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   overflow: hidden;
 }
 .carousel-card .image img {
@@ -172,11 +172,12 @@ h1 {
   width: 100%;
   transition: 0.5s;
 }
+
 .details {
   position: absolute;
   top: 0;
   left: 0;
-  width: 70%; /*100%*/
+  width: 50%; /*100%*/
   height: 100%;
   background: rgba(44, 62, 80, 0.9);
   transition: 0.5s;
@@ -190,6 +191,7 @@ h1 {
   transform: perspective(2000px) rotateY(0deg);
 } */
 .center {
+  width: 50%;
   padding: 20px;
   text-align: center;
   background: #fff;
@@ -198,6 +200,7 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
 }
+
 .details .center h1 {
   margin: 0;
   padding: 0;
